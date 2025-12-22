@@ -1,0 +1,13 @@
+# Git clone inside Dockerfile
+
+FROM node
+
+WORKDIR /dev/nodejs/my-app
+
+RUN apt-get update && apt-get install -y git
+
+RUN git clone <repo-url> .
+
+RUN npm install
+
+CMD ["npm", "start"]

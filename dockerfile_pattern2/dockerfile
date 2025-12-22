@@ -1,0 +1,22 @@
+# Development Pattern (Bind Mount Friendly)
+
+# When to use
+# Local development
+# Hot reload
+# Code sync (host ↔ container)
+
+
+
+FROM node:20-alpine
+
+WORKDIR /developer/nodejs/app-name
+
+COPY package*.json ./
+
+RUN npm ci
+
+COPY . .
+
+ENV PORT=3000
+
+CMD ["npm", "start"]

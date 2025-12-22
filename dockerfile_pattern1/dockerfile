@@ -1,0 +1,24 @@
+# Production Node.js App (MOST USED)
+
+# When to use
+# CI/CD
+# Deployment
+# No bind mount
+# Clean & fast builds
+
+
+FROM node:20-alpine
+
+WORKDIR /developer/nodejs/app-name
+
+COPY package*.json ./
+
+RUN npm ci --only=production
+
+COPY . .
+
+ENV PORT=3000
+
+EXPOSE 3000
+
+CMD ["npm", "start"]
