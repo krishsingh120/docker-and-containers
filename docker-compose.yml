@@ -1,0 +1,31 @@
+version: "3.9"
+
+networks:
+  micro-net:
+    driver: bridge
+
+volumes:
+  api-gateway-node-modules:
+  python-project-node-modules:
+
+services:
+  api_gateway:
+    container_name: api-gateway
+    build: ./api_gateway
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./api_gateway:/app
+      - api-gateway-node-modules:/app/node_modules
+    networks:
+      - micro-net
+
+  python_project:
+    container_name: python-project
+    build: ./python-project
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./python-project:/app
+    networks:
+      - micro-net
