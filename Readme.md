@@ -118,3 +118,45 @@ docker system prune
 docker volume prune
 docker network prune
 ```
+
+## 🔹Login to Docker Hub
+
+```bash
+docker login
+docker login -u <username>  ### OR (recommended – using username)
+```
+
+## 🔹 Build Docker Image
+```bash
+docker build -t app-setup-from-github .
+```
+
+## 🔹 Tag Image for Docker Hub
+```bash
+docker tag <local-image--name> <username>/<repo-name>:latest
+docker tag app-setup-from-github <username>/github-app
+```
+
+## 🔹 Push Image to Docker Hub
+```bash
+docker push <username>/github-app:latest
+```
+
+## 🔹 Verify Local Images
+```bash
+docker images
+```
+
+## 🔹 Pull Image from Docker Hub (Test)
+```bash
+docker pull <username>/github-app:latest
+```
+## 🔹 Run Image from Docker Hub
+```bash
+docker run -d -p 3001:3000 <username>/github-app:latest
+```
+
+## 🔹 Logout from Docker Hub
+```bash
+docker logout
+```
