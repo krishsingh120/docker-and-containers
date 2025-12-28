@@ -1,4 +1,4 @@
-# 🐳 Docker Commands Notes (Step-by-Step – As I Learned)
+# Docker Commands Notes (Step-by-Step – As I Learned)
 
 ---
 
